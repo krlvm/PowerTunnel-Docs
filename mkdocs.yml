@@ -1,0 +1,39 @@
+site_name: PowerTunnel SDK
+repo_url: https://github.com/krlvm/PowerTunnel
+copyright: (c) krlvm, 2019-2021
+edit_uri: ""
+nav:
+    - Introduction: index.md
+    - Getting Started: getting-started.md
+    - Developing Plugins:
+        - Plugin System: plugins/system.md
+        - Hello World Plugin: plugins/hello-world.md
+    - JavaScript Hooks: js-hooks.md
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+theme:
+  name: material
+  logo: https://raw.githubusercontent.com/krlvm/PowerTunnel/master/.github/images/logo.png
+  favicon: https://raw.githubusercontent.com/krlvm/PowerTunnel/master/.github/images/logo.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+extra_css:
+  - styles.css

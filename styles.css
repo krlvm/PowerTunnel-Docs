@@ -1,0 +1,11 @@
+:root {
+    --md-accent-fg-color: green;
+}
+
+::selection {
+    background-color: #6fbf7380; 
+}
+
+.md-header {
+    user-select: none;
+}

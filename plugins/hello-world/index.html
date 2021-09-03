@@ -1,0 +1,738 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="https://raw.githubusercontent.com/krlvm/PowerTunnel/master/.github/images/logo.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>Hello World Plugin - PowerTunnel SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../styles.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developing-hello-world-plugin" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PowerTunnel SDK" class="md-header__button md-logo" aria-label="PowerTunnel SDK" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/krlvm/PowerTunnel/master/.github/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PowerTunnel SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hello World Plugin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/krlvm/PowerTunnel" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PowerTunnel SDK" class="md-nav__button md-logo" aria-label="PowerTunnel SDK" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/krlvm/PowerTunnel/master/.github/images/logo.png" alt="logo">
+
+    </a>
+    PowerTunnel SDK
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/krlvm/PowerTunnel" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Developing Plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Developing Plugins" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Developing Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system/" class="md-nav__link">
+        Plugin System
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hello World Plugin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hello World Plugin
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-main-class" class="md-nav__link">
+    Preparing Main Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listening-to-server-lifecycle" class="md-nav__link">
+    Listening to server lifecycle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listening-to-proxy-lifecycle" class="md-nav__link">
+    Listening to proxy lifecycle
+  </a>
+  
+    <nav class="md-nav" aria-label="Listening to proxy lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blocking-requests" class="md-nav__link">
+    Blocking requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-responses" class="md-nav__link">
+    Modifying responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-manifest" class="md-nav__link">
+    Creating manifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-plugin" class="md-nav__link">
+    Testing plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-be-continued" class="md-nav__link">
+    To be continued
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../js-hooks/" class="md-nav__link">
+        JavaScript Hooks
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-main-class" class="md-nav__link">
+    Preparing Main Class
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listening-to-server-lifecycle" class="md-nav__link">
+    Listening to server lifecycle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listening-to-proxy-lifecycle" class="md-nav__link">
+    Listening to proxy lifecycle
+  </a>
+  
+    <nav class="md-nav" aria-label="Listening to proxy lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blocking-requests" class="md-nav__link">
+    Blocking requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-responses" class="md-nav__link">
+    Modifying responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-manifest" class="md-nav__link">
+    Creating manifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-plugin" class="md-nav__link">
+    Testing plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-be-continued" class="md-nav__link">
+    To be continued
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="developing-hello-world-plugin">Developing Hello World Plugin</h1>
+<p>In this guide you will learn how to develop a simple plugin that logs "Hello World" on bootstrap, and blocks requests to specific websites.<br />
+The resulting project can be found <a href="https://github.com/krlvm/PowerTunnel-Plugin-Template">here</a>.</p>
+<p>It assumes you are already familiar with Java.</p>
+<h2 id="preparing-main-class">Preparing Main Class</h2>
+<p>First, create an arbitrary package and a class in it, for example, <code>com.example.plugin.MyPlugin</code>.</p>
+<p>Every plugin should extend <code>PowerTunnelPlugin</code> class to get access to plugin lifecycle:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">com.example.plugin</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">io.github.krlvm.powertunnel.sdk.plugin.PowerTunnelPlugin</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPlugin</span> <span class="kd">extends</span> <span class="n">PowerTunnelPlugin</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="listening-to-server-lifecycle">Listening to server lifecycle</h2>
+<p>The key plugin method is <code>onProxyInitialization</code> - it is being called after injecting the last plugin and before starting the proxy server. During the initialization, you can modify proxy server configuration and bind your server lifecycle listeners - you can listen to server status change (starting, running, stopping, not running) and proxy server lifecycle events - control the traffic when it's going from client to proxy, from proxy to server, from server to proxy, and from proxy to client, and control DNS requests.</p>
+<p>To bind a server lifecycle listener, use method <code>registerServerListener</code>, which accepts <code>ServerListener</code> instance as argument.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It's more convenient to extend <code>ServerAdapter</code> than <code>ServerListener</code></p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProxyInitialization</span><span class="p">(</span><span class="n">ProxyServer</span> <span class="n">proxy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+    <span class="n">registerServerListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ServerAdapter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProxyStatusChanged</span><span class="p">(</span><span class="n">ProxyStatus</span> <span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;status = &quot;</span> <span class="o">+</span> <span class="n">status</span><span class="p">.</span><span class="na">name</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="listening-to-proxy-lifecycle">Listening to proxy lifecycle</h2>
+<h3 id="blocking-requests">Blocking requests</h3>
+<p>To listen to proxy lifecycle events, you need to register your listener in <code>onProxyInitialization</code> using method <code>registerProxyListener</code>, which accepts <code>ProxyListener</code> instance and (optionally) priority for the given listener instance.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It's more convenient to extend <code>ProxyAdapter</code> than <code>ProxyListener</code></p>
+</div>
+<p>In this article, we are developing a plugin that restricts access to some websites, the best time for filtering is the transfer of a packet from the client to the proxy - corresponding ProxyListener lifecycle callback is <code>onClientToProxyRequest</code>.</p>
+<p>For example, we can restrict access to <code>google.com</code> using following code:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProxyInitialization</span><span class="p">(</span><span class="n">ProxyServer</span> <span class="n">proxy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">registerProxyListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ProxyAdapter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClientToProxyRequest</span><span class="p">(</span><span class="n">ProxyRequest</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getHost</span><span class="p">().</span><span class="na">endsWith</span><span class="p">(</span><span class="s">&quot;github.com&quot;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">request</span><span class="p">.</span><span class="na">setBlocked</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+Calling method <code>setBlocked</code> is equivalent to calling method <code>setResponse</code> with body text "Access denied by proxy server" and status code 403. Request is considered blocked if response is not null, if response is null, the request goes further along the chain. You can check if a request is blocked by calling the <code>isBlocked</code> method.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It's highly recommended to check if the request is blocked before inspecting it, because it might be blocked by another plugin and there's no need to modify it as it will not reach its destination.</p>
+</div>
+<p>If you want to set custom response, use <code>setResponse</code> method:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProxyInitialization</span><span class="p">(</span><span class="n">ProxyServer</span> <span class="n">proxy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">registerProxyListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ProxyAdapter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClientToProxyRequest</span><span class="p">(</span><span class="nd">@NotNull</span> <span class="n">ProxyRequest</span> <span class="n">request</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">isBlocked</span><span class="p">())</span> <span class="p">{</span>
+                <span class="c1">// Request is already blocked by another plugin</span>
+                <span class="k">return</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getHost</span><span class="p">().</span><span class="na">endsWith</span><span class="p">(</span><span class="s">&quot;github.com&quot;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">request</span><span class="p">.</span><span class="na">setResponse</span><span class="p">(</span><span class="n">proxy</span><span class="p">.</span><span class="na">getResponseBuilder</span><span class="p">(</span><span class="s">&quot;This website is blocked&quot;</span><span class="p">,</span> <span class="mi">403</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">contentType</span><span class="p">(</span><span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">build</span><span class="p">()</span>
+                <span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition faq">
+<p class="admonition-title">Faq</p>
+<p><strong>Why can't I see the blocking message?</strong><br />
+You may notice that website you blocked just doesn't load without showing any message.<br />
+This is because most likely (in 99% of cases) you are loading the site over <a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>, where S stands for Secure: you cannot just interfere with HTTPS traffic without a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">MITM</a> attack. Information on using MITM is found below.<br />
+If you're looking for plain HTTP website for testing, check <a href="http://neverssl.com/">neverssl.com</a></p>
+</div>
+<h3 id="modifying-responses">Modifying responses</h3>
+<p>To modify the response, it's recommended to use <code>onProxyToClientResponse</code> lifecycle method.</p>
+<p>Since most websites use HTTPS, you need to use a MITM attack to decrypt packets.<br />
+You should also make sure that you're working with the full packet and not with a chunk.<br />
+PowerTunnel provides a very simple way to do this.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>You will need to install a Root CA on every machine, the traffic that you are MITMing.<br />
+Some webservers validates the certificate, so they could break in unexpected ways.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProxyInitialization</span><span class="p">(</span><span class="n">ProxyServer</span> <span class="n">proxy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">proxy</span><span class="p">.</span><span class="na">setMITMEnabled</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="n">proxy</span><span class="p">.</span><span class="na">setFullResponse</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>For example, you want to add "Hello World" to the beginning of the web page.<br />
+You will need to check that you aren't working with a chunk.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure that MITM is enabling before modifying request to make sure you will not break encrypted HTTPS packet</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onProxyToClientResponse</span><span class="p">(</span><span class="nd">@NotNull</span> <span class="n">ProxyResponse</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">proxy</span><span class="p">.</span><span class="na">isMITMEnabled</span><span class="p">())</span> <span class="k">return</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">response</span><span class="p">.</span><span class="na">isDataPacket</span><span class="p">())</span> <span class="k">return</span><span class="p">;</span>
+    <span class="n">response</span><span class="p">.</span><span class="na">setRaw</span><span class="p">(</span><span class="s">&quot;&lt;b&gt;Hello World!&lt;/b&gt;&quot;</span> <span class="o">+</span> <span class="n">response</span><span class="p">.</span><span class="na">raw</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="creating-manifest">Creating manifest</h2>
+<p>To make your plugin work, you need to provide a manifest, as described in previous article.<br />
+Assuming our main class is named <code>MyPlugin</code> and it's located in package <code>com.example.plugin</code>, we should create a <code>plugin.ini</code> in project resources with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-plugin</span>
+<span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0</span>
+<span class="nt">versionCode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My Plugin</span>
+<span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Hello World Plugin</span>
+<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Unknown Author</span>
+<span class="nt">homepage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/krlvm/PowerTunnel-Plugin-Template</span>
+<span class="nt">mainClass</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">com.example.plugin.MyPlugin</span>
+<span class="nt">targetSdkVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">99</span>
+</code></pre></div>
+<h2 id="testing-plugin">Testing plugin</h2>
+<p>Since Desktop and Android editions are sharing the same codebase, it's easier to test the plugin on Desktop version, while it is guaranteed that it will work in the same way on Android.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Android uses its own Java Virtual Machine — Android Runtime (ART), previously known as Dalvik.<br />
+To produce Android-compatible jarfile, the plugin code should be compiled to <code>.dex</code> file.<br />
+PowerTunnel uses <a href="https://developer.android.com/studio/command-line/d8">D8</a> tool from Android SDK to produce Android-compatible jars, it will be available later.</p>
+</div>
+<p>To test plugin, you need to produce a <code>.jar</code> artifact and put the jarfile into <code>plugins</code> directory of PowerTunnel distribution directory. If the proxy server was running at the moment you pasted the file into plugins directory, you need to completely restart PowerTunnel.</p>
+<h2 id="to-be-continued">To be continued</h2>
+<p>The documentation is not yet complete, if you have any suggestions or questions, please open a new issue on GitHub.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../system/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plugin System" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Plugin System
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../js-hooks/" class="md-footer__link md-footer__link--next" aria-label="Next: JavaScript Hooks" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              JavaScript Hooks
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            (c) krlvm, 2019-2021
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+    
+  </body>
+</html>
